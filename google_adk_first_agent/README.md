@@ -59,10 +59,6 @@ cp .env.example .env
 
 ### 6. Run Agent Locally
 
-- Via CLI 
-```bash
-adk run agent_name
-```
 - Via web UI. Access via the provided local URL.
 ```bash
 adk web
@@ -87,11 +83,11 @@ python deploy.py
 ### 2. Deploy via CLI
 ```bash
 adk deploy agent_engine \
-    --project=[project] \
-    --region=[region] \
-    --staging_bucket=[staging_bucket] \
-    --display_name=[app_name] \
-    path/to/your/agent_folder
+    --project=${GOOGLE_CLOUD_PROJECT} \
+    --region=${GOOGLE_CLOUD_LOCATION} \
+    --staging_bucket=${STAGING_BUCKET} \
+    --display_name=google_search_agent \
+    google_search_agent/
 ```
 
 ## Access Deployed Agent
@@ -99,10 +95,9 @@ adk deploy agent_engine \
 Once deployed, you can access your agent via the **Agent Engine API** for production use. 
 
 ```bash
-curl --request POST \ 
- 'https://aiplatform.googleapis.com/v1/project/<project_id>/locations/<region>/reasoningEngines/<agent_id>:streamQuery' \
-  --header 'Authorization: Bearer $(gcloud auth print-access-token)' \
-  --header 'Content-Type: application/json' \
+curl --request POST 'https://aiplatform.googleapis.com/v1/project/<project_id>/locations/<region>/reasoningEngines/<agent_id>:streamQuery' \
+  --header "Authorization: Bearer $(gcloud auth print-access-token)" \
+  --header "Content-Type: application/json" \
   --data '{
 	  "class_method": "stream_query",
 	  "input": {
