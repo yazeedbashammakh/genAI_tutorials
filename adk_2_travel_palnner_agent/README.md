@@ -1,5 +1,6 @@
 # AI Assistant (Multi-Agent System)
 
+![Trip Planner Agent Architecture](image.png)
 This tutorial contains multi-agent system built using google adk. It contains AI assistant which is able to:
 
 - Summarise the latest news using SerpAPI
