@@ -1,3 +1,3 @@
-"""Init file for google_search_agent module."""
+"""Init file for travel planner agent module."""
 
 from . import agent

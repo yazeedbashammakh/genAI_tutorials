@@ -1,0 +1,3 @@
+google-search-results
+python-dotenv
+google-adk
