@@ -1,0 +1,35 @@
+{
+    "name": "hotels_agent",
+    "description": "Hotel Search Agent",
+    "url": "http://localhost:8002/a2a/hotels_agent",
+    "version": "0.0.1",
+    "defaultInputModes": [
+        "text/plain"
+    ],
+    "defaultOutputModes": [
+        "text/plain"
+    ],
+    "preferredTransport": "JSONRPC",
+    "protocolVersion": "0.3.0",
+    "skills": [
+        {
+            "description": "Hotel Search Agent \nI am a Hotels Recommendation Assistant. \nmy task is to find hotels based on the given destination, travel dates, and budget. \nAlways return results in structured JSON format with the following fields:\n\n- hotel_name\n- location\n- rating\n- number_of_reviews\n- amenities (list)\n- price_per_night\n- total_price (for stay duration)\n- booking_link (if available)\n\nAdd more fields if necessary.\n\nGuidelines:\n- Suggest at least 3 hotels, sorted by user preference (e.g., price, rating, distance).\n- Mention if free cancellation or breakfast is included.\n- Do not include irrelevant commentary; only hotel details.\n- If details like budget or dates are missing, ask clarifying questions.\n",
+            "id": "hotels_agent",
+            "name": "model",
+            "tags": [
+                "llm"
+            ]
+        },
+        {
+            "description": "Search hotels.",
+            "id": "hotels_agent-search_hotels",
+            "name": "search_hotels",
+            "tags": [
+                "llm",
+                "tools"
+            ]
+        }
+    ],
+    "capabilities": {},
+    "supportsAuthenticatedExtendedCard": false
+}
